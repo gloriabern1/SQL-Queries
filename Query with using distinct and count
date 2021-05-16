@@ -1,0 +1,3 @@
+select distinct plays.id, title,  coalesce(SUM(number_of_tickets), 0) as 
+reserved_tickets from plays left join reservations on plays.id= reservations.play_id
+group by plays.id, plays.title order by reserved_tickets desc
